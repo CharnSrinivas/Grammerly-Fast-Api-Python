@@ -1,0 +1,4 @@
+venv
+models/parrot.pth
+
+__pycache__*
