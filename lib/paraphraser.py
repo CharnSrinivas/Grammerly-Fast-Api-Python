@@ -7,17 +7,18 @@ warnings.filterwarnings('ignore')
 parrot = None
 try:
     if os.path.exists('models/parrot.pth'):
-        print("loading..")
+        print("Loading Parrot form disk ..")
         parrot = torch.load('models/parrot.pth')
     else:
-        print("downloading model..")
+        print("Downloading Parrot model..")
         parrot = Parrot(
             model_tag="prithivida/parrot_paraphraser_on_T5", use_gpu=False)
-        print("saving...")
+        print("Saving parrot model to dis..")
         torch.save(parrot, 'models/parrot.pth')
 except Exception as e:
     if os.path.exists('models/parrot.pth'):
         os.remove('models/parrot.pth')
+    print("Error while loading parrot module: ")
     print(e)
 
 

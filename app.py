@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from lib.utils import split_into_sentences, correct_grammar_sentences, get_emotion
 from gingerit.gingerit import GingerIt
-# from lib.paraphraser import get_paraphrases
+from lib.paraphraser import get_paraphrases
 parser = GingerIt()
 
 app = FastAPI()
