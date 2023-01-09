@@ -1,5 +1,12 @@
-# Build the image
+# Run in development
+! pip install -r requirements
+! uvicorn app:app
 
+# Docs 
+
+Navigate to /docs route after running the server to get the API swagger UI documentation.
+
+# Build the image
 docker build -t <Image-Name> .
 
 # Run the container

@@ -23,11 +23,15 @@ nvidia-cuda-nvrtc-cu11==11.7.99
 nvidia-cuda-runtime-cu11==11.7.99
 nvidia-cudnn-cu11==8.5.0.96
 packaging==22.0
+pandas==1.5.2
 parrot @ git+https://github.com/PrithivirajDamodaran/Parrot_Paraphraser.git@720a87a1ee557d8ed8d9a021adbdd1dd5616c5f9
 Pillow==9.4.0
+protobuf==3.19.6
 pydantic==1.10.4
 pyparsing==3.0.9
+python-dateutil==2.8.2
 python-Levenshtein==0.20.9
+pytz==2022.7
 PyYAML==6.0
 rapidfuzz==2.13.7
 regex==2022.10.31
@@ -37,6 +41,7 @@ scikit-learn==1.2.0
 scipy==1.10.0
 sentence-transformers==2.2.2
 sentencepiece==0.1.97
+six==1.16.0
 sniffio==1.3.0
 starlette==0.22.0
 textblob==0.17.1

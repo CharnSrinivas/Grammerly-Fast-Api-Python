@@ -39,6 +39,6 @@ def emotion(body:Body):
     if body and body.text:
         text = body.text
         text_emotion = get_emotion(text=text)
-        return ({'data':text_emotion})
+        return ({'data':{'emotion':text_emotion}})
     else:
         return ({"error": "'text' field is not provided"})
