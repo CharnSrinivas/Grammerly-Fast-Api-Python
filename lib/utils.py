@@ -1,9 +1,10 @@
 import re
 import torch
-from gingerit.gingerit import GingerIt
-from textblob import TextBlob
-parser = GingerIt()
 
+from textblob import TextBlob
+from gramformer import Gramformer
+
+gf = Gramformer(models = 1, use_gpu=False) # 1=corrector, 2=detectorgf = 
 
 def set_seed(seed):
     torch.manual_seed(seed)
@@ -53,7 +54,6 @@ def split_into_sentences(text):
     text = text.replace("!", "!<stop>")
     text = text.replace("<prd>", ".")
     sentences = text.split("<stop>")
-    print('text', text)
     print('sentences ', sentences)
     # if len(sentences) > 1:
     # sentences = sentences[:-1]    
@@ -63,18 +63,22 @@ def split_into_sentences(text):
         if phrase is None or phrase == '':
             continue
         result.append(phrase)
-    print('result',result)
     return result
 
 
 def correct_grammar_sentences(text):
     corrected_results = []
     sentences = split_into_sentences(text=text)
-    print('sentences', sentences)
     for sentence in sentences:
-        if len(sentences) <= 600:
-            res = parser.parse(sentence)
-            corrected_results.append(res)
+        corrected_sentences = list(gf.correct(input_sentence=sentence,max_candidates=1))[0]
+        edits = gf.get_edits(cor=corrected_sentences,orig=sentence)
+
+        res ={
+            'original':sentence,
+            'corrected':corrected_sentences,
+            'edits':edits
+        }
+        corrected_results.append(res)
     return corrected_results
 
 
@@ -82,17 +86,17 @@ def get_emotion(text):
     text_blob  = TextBlob(text)
     sentiment = text_blob.sentiment
     # Create two new columns 'Subjectivity' & 'Polarity
-    print("polarity: ",sentiment.polarity)
     def get_sentiment(polarity):
         if polarity > 0.5:
-            return "VERY POSITIVE"
+            return "VERY HAPPY"
         elif polarity > 0.3:
-            return "POSITIVE"
+            return "HAPPY"
         elif polarity >= 0:
             return "NEUTRAL"
         elif polarity > -0.2:
-            return "NEGATIVE"
+            return "SAD"
         else:
-            return "VERY NEGATIVE"
+            return "VERY SAD"
 
     return get_sentiment(sentiment.polarity)
+

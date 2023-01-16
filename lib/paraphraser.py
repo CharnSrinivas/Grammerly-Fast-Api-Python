@@ -5,6 +5,7 @@ import os
 warnings.filterwarnings('ignore')
 
 parrot = None
+
 try:
     if os.path.exists('models/parrot.pth'):
         print("Loading Parrot form disk ..")

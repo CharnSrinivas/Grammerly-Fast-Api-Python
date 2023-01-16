@@ -1,12 +1,18 @@
 anyio==3.6.2
+blis==0.7.9
+catalogue==1.0.2
 certifi==2022.12.7
 charset-normalizer==2.1.1
 click==8.1.3
 cloudscraper==1.2.67
+cymem==2.0.7
+en-core-web-sm @ https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-2.3.1/en_core_web_sm-2.3.1.tar.gz
+errant==2.3.3
 fastapi==0.89.0
 filelock==3.9.0
+fsspec==2022.11.0
 fuzzywuzzy==0.18.0
-gingerit==0.9.0
+gramformer @ git+https://github.com/PrithivirajDamodaran/Gramformer.git@23425cd2e98a919384cab6156af8adf1c9d0639a
 h11==0.14.0
 huggingface-hub==0.11.1
 idna==3.4
@@ -16,6 +22,7 @@ Jinja2==3.1.2
 joblib==1.2.0
 Levenshtein==0.20.9
 MarkupSafe==2.1.1
+murmurhash==1.0.9
 nltk==3.8.1
 numpy==1.24.1
 nvidia-cublas-cu11==11.10.3.66
@@ -26,6 +33,8 @@ packaging==22.0
 pandas==1.5.2
 parrot @ git+https://github.com/PrithivirajDamodaran/Parrot_Paraphraser.git@720a87a1ee557d8ed8d9a021adbdd1dd5616c5f9
 Pillow==9.4.0
+plac==1.1.3
+preshed==3.0.8
 protobuf==3.19.6
 pydantic==1.10.4
 pyparsing==3.0.9
@@ -43,8 +52,11 @@ sentence-transformers==2.2.2
 sentencepiece==0.1.97
 six==1.16.0
 sniffio==1.3.0
+spacy==2.3.9
+srsly==1.0.6
 starlette==0.22.0
 textblob==0.17.1
+thinc==7.4.6
 threadpoolctl==3.1.0
 tokenizers==0.13.2
 torch==1.13.1
@@ -54,5 +66,6 @@ transformers==4.25.1
 typing_extensions==4.4.0
 urllib3==1.26.13
 uvicorn==0.20.0
+wasabi==0.10.1
 Werkzeug==2.2.2
 zipp==3.11.0
